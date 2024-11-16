@@ -1,26 +1,25 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Course} from '../model/course';
 
 import {AppMaterialModule} from '../../shared/app-material/app-material.module';
+import {CoursesService} from '../services/courses.service';
 
 @Component({
   selector: 'app-courses',
   standalone: true,
   imports: [
-    AppMaterialModule
+    AppMaterialModule,
   ],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.scss'
 })
 export class CoursesComponent {
 
-  courses: Course[] = [
-    {id:'1',name:'Angular',category:'Front-end'}
-  ];
-  displayedColumns= ['name','category'];
+  courses: Course[] = [];
+  displayedColumns = ['name', 'category'];
 
-  constructor(
-
-  ) {
+  constructor(private service: CoursesService) {
+    this.courses = this.service.list();
   }
+
 }

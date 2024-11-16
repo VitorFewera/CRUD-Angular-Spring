@@ -5,12 +5,15 @@ import {CoursesRoutingModule} from './courses-routing.module';
 import {MatTableModule} from '@angular/material/table';
 
 
+
+
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     CoursesRoutingModule,
-    MatTableModule
+    MatTableModule,
+
   ]
 })
 export class CoursesModule {
