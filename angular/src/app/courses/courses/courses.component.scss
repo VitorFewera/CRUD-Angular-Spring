@@ -1,4 +1,12 @@
 
-.mt{
+.mt {
   margin-top: 3rem;
+}
+
+.loading-spinner {
+  padding: 1rem;
+  background: rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

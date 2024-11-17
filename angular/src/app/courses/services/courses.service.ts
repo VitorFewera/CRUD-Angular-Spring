@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Course} from '../model/course';
 import {HttpClient} from '@angular/common/http';
-import {first, take, tap} from 'rxjs';
+import {delay, first, take, tap} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,8 @@ export class CoursesService {
   list() {
     return this.http.get<Course[]>(this.API)
       .pipe(
-        first(),//trazer somente o primeiro resultado da req e fechar a conexão.
+        first(), //trazer somente o primeiro resultado da req e fechar a conexão.
+        delay(1000), //delay para o conteudo carregar.
         tap(courses => console.log(courses))
       )
   }
